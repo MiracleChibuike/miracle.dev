@@ -6,7 +6,7 @@ import "./Entry.css";
 import Resume from "../media/files/Miracle.pdf";
 import dev_avatar from "../assets/devImages/dev-avatar.png";
 import dev2 from "../assets/devImages/dev-2.png";
-import backgroundVideo from "../media/videos/dark-tone.mp4";
+// import backgroundVideo from "../media/videos/dark-tone.mp4";
 import NavMenu from "./NavMenu";
 // Import Dev images
 import react_logo from "../media/tech_stacks/react.png";

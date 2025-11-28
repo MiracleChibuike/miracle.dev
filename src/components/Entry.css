@@ -14,7 +14,7 @@
 .hero-section{
     text-align: center;
     line-height: 1.5;
-    background: url(../media/videos/dark-tone.mp4);
+    /* background: url(../media/videos/dark-tone.mp4); */
 }
 .dev-name{
     font-size: 3em;
