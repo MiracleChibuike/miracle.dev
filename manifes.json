@@ -1,0 +1,23 @@
+
+{
+    "name": "My Web Portfolio",
+    "short_name": "Miracle.dev",
+    "description": "A progressive web app portfolio",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "scope": "/",
+    "icons": [
+        {
+            "src": "/images/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
