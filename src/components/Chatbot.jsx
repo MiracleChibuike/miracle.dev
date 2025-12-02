@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import "./Chatbot.css";
 
-const Chatbot = () => {
+const Chatbot = ({ onChatbotToggle }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
@@ -24,6 +24,13 @@ const Chatbot = () => {
     scrollToBottom();
   }, [messages]);
 
+  // Notify parent when chatbot opens/closes
+  useEffect(() => {
+    if (onChatbotToggle) {
+      onChatbotToggle(isOpen);
+    }
+  }, [isOpen, onChatbotToggle]);
+
   // Portfolio knowledge base
   const portfolioKnowledge = {
     projects: {
@@ -32,7 +39,8 @@ const Chatbot = () => {
       technologies: "React JS, JavaScript, CSS, HTML5, Vite, Bootstrap",
       examples:
         "My projects range from responsive web applications to interactive user interfaces.",
-       completed: "You can view my projects on my GitHub profile (MiracleChibuike) - https://github.com/MiracleChibuike.", 
+      completed:
+        "You can view my projects on my GitHub profile (MiracleChibuike) - https://github.com/MiracleChibuike.",
     },
     experience: {
       years: "2+ years of industry experience",
@@ -41,10 +49,12 @@ const Chatbot = () => {
       role: "Certified Front-End Engineer",
     },
     trust: {
-        reliability: "Reliable and timely delivery of projects",
-        quality: "High-quality code and best practices",
-        communication: "Clear and consistent communication throughout the project",
-        testimonials: "Positive feedback from previous clients (real clients only) - look on my LinkedIn and GitHub profiles",
+      reliability: "Reliable and timely delivery of projects",
+      quality: "High-quality code and best practices",
+      communication:
+        "Clear and consistent communication throughout the project",
+      testimonials:
+        "Positive feedback from previous clients (real clients only) - look on my LinkedIn and GitHub profiles",
     },
     skills: {
       technical:
@@ -233,12 +243,11 @@ const Chatbot = () => {
 
     // Result for trust-related questions
     if (
-        lowerMessage.includes("trust") ||
-        lowerMessage.includes("why work with you") ||
-        lowerMessage.includes("legit")
-
+      lowerMessage.includes("trust") ||
+      lowerMessage.includes("why work with you") ||
+      lowerMessage.includes("legit")
     ) {
-        return `You can trust me because of my:\n• ${portfolioKnowledge.trust.reliability}\n• ${portfolioKnowledge.trust.quality}\n• ${portfolioKnowledge.trust.communication}\n• ${portfolioKnowledge.trust.testimonials}\n\nI prioritize client satisfaction and deliver high-quality work on time! 🤝`;
+      return `You can trust me because of my:\n• ${portfolioKnowledge.trust.reliability}\n• ${portfolioKnowledge.trust.quality}\n• ${portfolioKnowledge.trust.communication}\n• ${portfolioKnowledge.trust.testimonials}\n\nI prioritize client satisfaction and deliver high-quality work on time! 🤝`;
     }
 
     if (lowerMessage.includes("help") || lowerMessage.includes("assist")) {

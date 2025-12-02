@@ -21,10 +21,26 @@ import vite_logo from "../media/vite.svg";
 import hand_wave from "../assets/hand-wave.png";
 
 const Entry = () => {
+  const [chatbotOpen, setChatbotOpen] = useState(false);
   const navigate = useNavigate();
   const btnRef = useRef(null);
   const btnRefCurrent = btnRef.current;
   //  console.log("Button Ref Current:", btnRefCurrent);
+
+  // Apply blur effect when chatbot is open
+  useEffect(() => {
+    const parentContainer = document.getElementById("parent");
+    if (parentContainer) {
+      if (chatbotOpen) {
+        parentContainer.style.filter = "blur(4px)";
+        parentContainer.style.pointerEvents = "none";
+      } else {
+        parentContainer.style.filter = "blur(0px)";
+        parentContainer.style.pointerEvents = "auto";
+      }
+    }
+  }, [chatbotOpen]);
+
   useEffect(() => {
     btnRefCurrent?.addEventListener("click", () => {
       navigate("/menu");
@@ -404,9 +420,9 @@ const Entry = () => {
             </div>
           </div>
         </div>
-        {/* AI Chatbot */}
-        <Chatbot />
       </div>
+      {/* AI Chatbot - Outside parent to avoid blur effect */}
+      <Chatbot onChatbotToggle={setChatbotOpen} />
     </>
   );
 };
