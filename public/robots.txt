@@ -1,0 +1,18 @@
+# robots.txt for Miracle's Portfolio
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /.git/
+
+# Sitemaps
+Sitemap: https://miracle-portfolio.netlify.app/sitemap.xml
+
+# Crawl-delay to prevent server overload (in seconds)
+Crawl-delay: 1
+
+# User agents that should not crawl
+User-agent: AhrefsBot
+User-agent: SemrushBot
+Disallow: /

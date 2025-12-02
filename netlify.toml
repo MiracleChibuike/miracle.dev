@@ -1,0 +1,62 @@
+# Netlify configuration for SEO and performance optimization
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "functions"
+
+# Redirect rules for SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Custom headers for SEO and security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security Headers
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # SEO Headers
+    Cache-Control = "public, max-age=3600"
+    
+    # Content Security Policy
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;"
+
+# Cache static assets
+[[headers]]
+  for = "/src/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Context for production
+[context.production]
+  command = "npm run build"
+  environment = { NODE_ENV = "production" }
+
+# Context for preview/staging
+[context.preview]
+  command = "npm run build"
+
+# Context for development
+[context.develop]
+  command = "npm run dev"
