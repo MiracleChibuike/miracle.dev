@@ -154,27 +154,28 @@
   position: relative;
   left: 10px;
 }
-.nav-menu {
-  width: 100%;
-}
+
+
+
+
 .navMenuContainer {
-  background: linear-gradient(#3434ca, #084280);
-  padding: 20px 10px;
-  border-radius: 140px;
-  /* width: max-content; */
   position: fixed;
-  bottom: 0;
-  right: 40%;
-  left: 40%;
-  z-index: 999;
-  margin-bottom: 30px;
-  /* filter: blur(50%); */
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  background: linear-gradient(#3434ca, #084280);
+  padding: 20px 30px;
+  border-radius: 140px;
   opacity: 0.9;
-  /* Add a blur effect to the background */
+
   backdrop-filter: blur(15px);
-  --webkit-backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
 }
+
 
 .navMenuContainer button {
   background: transparent;
@@ -355,6 +356,7 @@
   .navMenuContainer {
     left: 10%;
     right: 10%;
+    transform: none;
   }
   /* About Me */
   .dev-info {

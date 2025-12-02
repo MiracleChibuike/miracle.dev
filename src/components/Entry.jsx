@@ -27,26 +27,6 @@ const Entry = () => {
   const btnRefCurrent = btnRef.current;
   //  console.log("Button Ref Current:", btnRefCurrent);
 
-  // Apply blur effect when chatbot is open
-  useEffect(() => {
-    const parentContainer = document.getElementById("parent");
-    if (parentContainer) {
-      if (chatbotOpen) {
-        parentContainer.style.filter = "blur(4px)";
-        parentContainer.style.pointerEvents = "none";
-      } else {
-        parentContainer.style.filter = "blur(0px)";
-        parentContainer.style.pointerEvents = "auto";
-      }
-    }
-  }, [chatbotOpen]);
-
-  useEffect(() => {
-    btnRefCurrent?.addEventListener("click", () => {
-      navigate("/menu");
-    });
-  });
-
   // Route to the Hero Container
   const home = useRef(null);
   console.log("Home Ref Current:", home.current);
