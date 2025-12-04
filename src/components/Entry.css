@@ -211,7 +211,6 @@
 .img-dev {
   background: linear-gradient(#084280, #4a90e2);
   width: 100%;
-  height: 50%;
   aspect-ratio: 1 / 1;
   border-radius: 2rem;
   display: grid;
@@ -228,7 +227,7 @@
   place-items: center;
   backdrop-filter: blur(20px);
   width: 100%;
-  /* height: 100%; */
+   height: 100%; 
   transform: rotate(10deg);
   -webkit-transform: rotate(10deg);
 }
