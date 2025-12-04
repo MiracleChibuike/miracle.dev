@@ -5,7 +5,9 @@
   # so the vite binary is available during the build step.
   command = "npm ci --include=dev && npm run build"
   publish = "dist"
-  functions = "functions"
+
+[build.environment]
+  NODE_VERSION = "18"
 
 [build.environment]
   # Instruct npm to install devDependencies in Netlify environment
@@ -89,10 +91,5 @@
   command = "npm run build"
   environment = { NODE_ENV = "production" }
 
-# Context for preview/staging
-[context.preview]
-  command = "npm run build"
 
-# Context for development
-[context.develop]
-  command = "npm run dev"
+
