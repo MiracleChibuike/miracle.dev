@@ -7,9 +7,8 @@
   publish = "dist"
 
 [build.environment]
+  # Set build environment values in a single table to avoid duplicates
   NODE_VERSION = "18"
-
-[build.environment]
   # Instruct npm to install devDependencies in Netlify environment
   NPM_CONFIG_PRODUCTION = "false"
 
