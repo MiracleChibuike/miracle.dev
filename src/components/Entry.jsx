@@ -57,14 +57,7 @@ const Entry = () => {
   });
 
   // Apply data-aos attributes and observe parent children for scroll animations
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      delay: 0,
-      once: false,
-      offset: 120,
-      easing: "ease-in-out",
-    });
+
 
 
   return (
