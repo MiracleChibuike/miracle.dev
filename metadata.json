@@ -252,7 +252,7 @@
     ],
     "ogImage": "/og-image.png",
     "twitterHandle": "@MiracleDev",
-    "canonical": "https://onyia-miracle.netlify.app/"
+    "canonical": "https://onyia-miracle.vercel.app/"
   },
   "navigation": {
     "mainNav": [

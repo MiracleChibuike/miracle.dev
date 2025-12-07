@@ -211,7 +211,7 @@
 .img-dev {
   background: linear-gradient(#084280, #4a90e2);
   width: 100%;
-  /* height: 50%; */
+  height: 50%;
   aspect-ratio: 1 / 1;
   border-radius: 2rem;
   display: grid;
@@ -242,6 +242,11 @@
   background: transparent;
   width: 80%;
   overflow: clip;
+}
+.developer_large{
+  background: var(--clr-blue);
+  /* width: 100%;
+  height: 50%; */
 }
 /* .shadow-card{
     background: linear-gradient(#4a90e2, #084280);
@@ -302,6 +307,52 @@
 #speak-with-me:hover {
   background: linear-gradient(#3434ca, #084280);
   transform: scale(1.2);
+}
+
+/* Work Experience */
+.work_exp{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 1em;
+}
+.work_exp > .work_exp_auto, .work_exp_auto2{
+    border-radius: 14px;
+  border: 1px solid var(--clr-dark);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  background: #05101c;
+  padding: 20px;
+  /* display: grid;
+  grid-template-rows: subgrid;
+  grid-row: 1 / 4; */
+  display: flex;
+  flex-direction: column;
+}
+.work_exp > .work_exp_auto:hover, .work_exp_auto:hover{
+  background: #0f2236;
+}
+.work_exp_auto .jD, .work_exp_auto2 .jD{
+  flex-grow: 1;
+}
+.work_exp_auto .jD ul li, .work_exp_auto2 .jD ul li{
+  padding: 5px 0;
+}
+.role_details span{
+  margin: 0 15px 0 0;
+}
+.role_details > :first-child{
+  font-weight: bold;
+}
+.job_type span{
+  background: var(--clr-blue);
+  color: var(--clr-light);
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+.tech_used > span{
+  background: var(--clr-dark);
+  border-radius: 5px;
+  margin: 0 10px 0 0;
+  padding: 5px;
 }
 
 /* Experience */
@@ -488,6 +539,9 @@
   .css_scrsc,
   .api_tst,
   .ed {
+    grid-template-columns: 1fr;
+  }
+  .work_exp{
     grid-template-columns: 1fr;
   }
   /* #cv-download, .let-chat{

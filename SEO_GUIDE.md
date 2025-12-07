@@ -1,4 +1,4 @@
-# SEO Optimization Guide for Netlify Deployment
+# SEO Optimization Guide for Vercel Deployment
 
 ## ✅ What I've Implemented for Your Portfolio
 
@@ -18,14 +18,13 @@
 - ✓ Proper categorization of skills and education
 - ✓ Contact information included
 
-### 3. **Search Engine Files**
+### 3. **Search Engine & Hosting Files**
 
 - ✓ **robots.txt** - Tells search engines what to crawl
 - ✓ **sitemap.xml** - Provides URL structure to search engines
-- ✓ **netlify.toml** - Configuration with security & SEO headers
-- ✓ **\_redirects** - Proper URL routing for SPA
+- ✓ **vercel.json** - Configuration with security & SEO headers (Vercel)
 
-### 4. **Security Headers (netlify.toml)**
+### 4. **Security Headers (vercel.json)**
 
 - ✓ X-Content-Type-Options: Prevents MIME type sniffing
 - ✓ X-Frame-Options: Protects against clickjacking
@@ -43,24 +42,24 @@
 
 ### Step 1: Submit to Search Engines
 
-1. **Google Search Console** (Most Important)
+1.  **Google Search Console** (Most Important)
 
-   - Go to: https://search.google.com/search-console
-   - Add your Netlify domain: `https://onyia-miracle.netlify.app/`
-   - Verify ownership (HTML file or DNS record)
-   - Submit your sitemap
-   - Monitor search performance
+    - Go to: https://search.google.com/search-console
+    - Add your Vercel domain: `https://onyia-miracle.vercel.app/`
+    - Verify ownership (HTML file or DNS record)
+    - Submit your sitemap
+    - Monitor search performance
 
-2. **Bing Webmaster Tools**
+2.  **Bing Webmaster Tools**
 
-   - Go to: https://www.bing.com/webmasters
-   - Add your site
-   - Submit sitemap
+    - Go to: https://www.bing.com/webmasters
+    - Add your site
+    - Submit sitemap
 
-3. **Google Analytics** (Recommended)
-   - Set up tracking to see visitor data
-   - Monitor bounce rate, session duration
-   - Track conversion goals
+3.  **Google Analytics** (Recommended)
+    - Set up tracking to see visitor data
+    - Monitor bounce rate, session duration
+    - Track conversion goals
 
 ### Step 2: Backlink Building
 
@@ -88,7 +87,7 @@
 
 ### Step 5: Get a Custom Domain (Optional but Recommended)
 
-While Netlify subdomains work, a custom domain improves:
+While Vercel subdomains work, a custom domain improves:
 
 - Brand recognition
 - SEO ranking
@@ -98,7 +97,7 @@ While Netlify subdomains work, a custom domain improves:
 Options:
 
 - Namecheap, GoDaddy, Google Domains (~$10/year)
-- Connect to Netlify (free HTTPS included)
+- Connect to Vercel (free HTTPS included)
 
 ## 📊 SEO Checklist
 
@@ -129,7 +128,7 @@ Options:
 ### Check if Google has indexed your site:
 
 ```
-site:miracle-portfolio.netlify.app
+site:onyia-miracle.vercel.app
 ```
 
 (Search this in Google to see indexed pages)
@@ -169,7 +168,7 @@ Monitor who links to your site
 
 ## 📝 Current Domain Status
 
-Your site is deployed at: `https://miracle-portfolio.netlify.app/`
+Your site is deployed at: `https://onyia-miracle.vercel.app/`
 
 **Pros:**
 
@@ -180,8 +179,8 @@ Your site is deployed at: `https://miracle-portfolio.netlify.app/`
 
 **Cons:**
 
-- ✗ Netlify subdomain (less memorable)
-- ✗ Shares domain authority with other Netlify sites
+- ✗ Vercel subdomain (less memorable)
+- ✗ Shares domain authority with other Vercel sites
 
 **Recommendation:** Once you get clients/revenue, invest in a custom domain (~$10/year) for better branding.
 
@@ -201,5 +200,5 @@ Remember: SEO is a marathon, not a sprint! Consistency is key.
 For questions or updates, refer to:
 
 - Google Search Central: https://developers.google.com/search
-- Netlify SEO Guide: https://www.netlify.com/
+- Vercel SEO Guide: https://vercel.com/docs
 - Schema.org: https://schema.org/

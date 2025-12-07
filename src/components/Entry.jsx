@@ -57,29 +57,6 @@ const Entry = () => {
   });
 
   // Apply data-aos attributes and observe parent children for scroll animations
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      delay: 0,
-      once: false,
-      offset: 120,
-      easing: "ease-in-out",
-    });
-
-    // Set data-aos on parent children (skip nav menu)
-    const parent = document.getElementById("parent");
-    if (parent) {
-      const children = Array.from(parent.children).filter(
-        (el) => !el.classList.contains("nav-menu")
-      );
-      children.forEach((el) => {
-        if (!el.hasAttribute("data-aos")) {
-          el.setAttribute("data-aos", "zoom-in-up");
-        }
-      });
-      AOS.refresh(); // Refresh to detect newly added data-aos attributes
-    }
-  }, []);
 
   return (
     <>
@@ -276,6 +253,143 @@ const Entry = () => {
                   id="speak-with-me">
                   Speak with Me
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Working Experience */}
+        <div
+          className="work_Exp"
+          style={{
+            margin: "90px 0",
+          }}>
+          <div className="text-center">
+            <p>
+              <strong style={{ color: "#aaaaaaff" }}>
+                Professional Working Experience
+              </strong>
+            </p>
+            <h3
+              className="dev-about-header"
+              style={{
+                fontWeight: "700",
+              }}>
+              See where I've Worked and What I've Done
+            </h3>
+          </div>
+          {/* Working Experience cards */}
+          <div className="work_exp">
+            <div className="work_exp_auto m-5">
+              <div className="role d-flex justify-content-between">
+                <h5>Front-End Engineer </h5>
+                <p>
+                  <i className="fa-solid fa-caret-down"></i>
+                </p>
+              </div>
+              <div className="role_details">
+                <span>Streethub Schola</span>
+                <span>
+                  {" "}
+                  <i className="fa-solid fa-location-dot text-secondary"></i>{" "}
+                  Owerri, Imo State Nigeria
+                </span>
+                <span>
+                  {" "}
+                  <i className="fa-solid fa-calendar text-secondary"></i> March
+                  2023 - Present{" "}
+                </span>
+                <div className="job_type mt-3">
+                  <span className="shadow-lg">Remote, Part-time</span>
+                </div>
+              </div>
+              <hr />
+              <div className="jD mt-2">
+                <ul>
+                  <li>
+                    Developed and maintained the Newsletter page for teachers —
+                    enabling educators to publish and manage announcements to
+                    students and parents while working alongside a team of 5 developers
+                  </li>
+                  <li>
+                    Built the Question Bank page for teachers — allowing
+                    educators to create, organize, and categorize assessment
+                    questions for classroom use
+                  </li>
+                  <li>
+                    Extended Newsletter functionality to the student-facing
+                    interface — implemented real-time course updates and
+                    announcement delivery
+                  </li>
+                  <li>
+                    Currently developing the "Take Test" feature — building an
+                    interactive test-taking interface that fetches questions
+                    dynamically from the question bank
+                  </li>
+                </ul>
+                <div className="tech_used">
+                  <p className="mt-3">
+                    <strong>Technologies Used:</strong>{" "}
+                  </p>
+                  <span>JavaScript(ES6) </span>
+                  <span>Fetch/Axious</span>
+                  <span>HTML5/CSS3</span>
+                  <span>Bootstrap</span>
+                </div>
+              </div>
+            </div>
+            {/* auto 2 */}
+            <div className="work_exp_auto2 m-5">
+              <div className="role d-flex justify-content-between">
+                <h5>Front-End Engineer </h5>
+                <p>
+                  <i className="fa-solid fa-caret-down"></i>
+                </p>
+              </div>
+              <div className="role_details">
+                <span>Zidio Development</span>
+                <span>
+                  {" "}
+                  <i className="fa-solid fa-location-dot text-secondary"></i>{" "}
+                  Delhi, India
+                </span>
+                <span>
+                  {" "}
+                  <i className="fa-solid fa-calendar text-secondary"></i> March
+                  2024 - July 2024{" "}
+                </span>
+                <div className="job_type mt-3">
+                  <span className="shadow-lg">Internship</span>
+                </div>
+              </div>
+              <hr />
+              <div className="jD mt-2">
+                <ul>
+                  <li>
+                    Developed a chat application using the 
+                    (Express, React, Node.js) as part of a
+                    collaborative team
+                  </li>
+                  <li>
+                    Designed and implemented real-time messaging features
+                  </li>
+                  <li>
+                    Built responsive user interface components in React with
+                    state management for conversation threads and user
+                    authentication
+                  </li>
+                  <li>
+                    Collaborated with team members on API design and database
+                    schema optimization for efficient data retrieval
+                  </li>
+                </ul>
+                <div className="tech_used">
+                  <p className="mt-3">
+                    <strong>Technologies Used:</strong>{" "}
+                  </p>
+                  <span>Express.js</span>
+                  <span>React</span>
+                  <span>Node.js</span>
+                </div>
               </div>
             </div>
           </div>

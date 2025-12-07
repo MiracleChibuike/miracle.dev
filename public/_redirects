@@ -1,16 +1,5 @@
-# Netlify Redirects Configuration
-# This file ensures proper routing and SEO optimization
+# Netlify redirects removed — project now uses Vercel
 
-# Main redirect - redirect non-www to www (or vice versa)
-# If using miracle-portfolio.netlify.app, this is automatic
+# Vercel handles redirects/rewrites and headers via `vercel.json` at the project root.
 
-# Redirect all HTTP to HTTPS (Netlify handles this automatically)
-# Status codes: 301 (permanent), 302 (temporary)
-
-# Redirect trailing slashes for consistency
-[[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
-
-# Security headers are set via netlify.toml
+# Remove this file or keep as documentation; it will not be used by Vercel.

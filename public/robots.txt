@@ -5,10 +5,10 @@ User-agent: *
 Allow: /
 Disallow: /node_modules/
 Disallow: /.git/
-Disallow: /.netlify/
+Disallow: /.vercel/
 
 # Sitemaps
-Sitemap: https://onyia-miracle.netlify.app/sitemap.xml
+Sitemap: https://onyia-miracle.vercel.app/sitemap.xml
 
 # Crawl-delay to prevent server overload (in seconds)
 Crawl-delay: 1
