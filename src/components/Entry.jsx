@@ -27,7 +27,7 @@ const Entry = () => {
 
   // Initialize AOS
   useEffect(() => {
-    AOS.init({ duration: 1000, once: false });
+    AOS.init({ duration: 1000, once: true });
 
   })
   const [chatbotOpen, setChatbotOpen] = useState(false);
@@ -62,6 +62,28 @@ const Entry = () => {
     }
   });
 
+  // Route to Experience Section(Skills)
+  const experienceMe = useRef(null);
+  const experienceMeBtn = useRef(null);
+  useEffect(() => {
+    if (experienceMe.current) {
+      experienceMeBtn.current?.addEventListener("click", () => {
+        experienceMe.current?.scrollIntoView({ behavior: "smooth" });
+      })
+    }
+  });
+
+  // Route to Work Experience Section
+  const experienceSection = useRef(null);
+  const experienceSectionBtn = useRef(null);
+  useEffect(() => {
+    if (experienceSection.current) {
+      experienceSectionBtn.current?.addEventListener("click", () => {
+        experienceSection.current?.scrollIntoView({ behavior: "smooth" });
+      })
+    }
+  })
+
   // Show and Hide JD when clicked
  const [openJob, setOpenJob] = useState(null); 
 
@@ -83,9 +105,12 @@ const Entry = () => {
             <button title="About Me" ref={aboutMeBtn}>
               <i className="fa-solid fa-user"></i>
             </button>
+            <button title="Work Experience">
+              <i className="fa-solid fa-briefcase" ref={experienceSectionBtn}></i>
+            </button>
 
-            <button>
-              <i className="fa-solid fa-briefcase"></i>
+            <button title="My Skills">
+              <i className="fa-solid fa-book" ref={experienceMeBtn}></i>
             </button>
 
             <button>
@@ -295,7 +320,7 @@ const Entry = () => {
             </h3>
           </div>
           {/* Working Experience cards */}
-          <div className="work_exp">
+          <div className="work_exp" ref={experienceSection}>
             <div className="work_exp_auto m-2" data-aos="fade-up-right">
               <div
                 className="roles_info"
@@ -587,6 +612,7 @@ const Entry = () => {
         </div>
         {/* Experience */}
         <div
+        ref={experienceMe}
           data-aos="fade-down"
           id="experience-me"
           className=""

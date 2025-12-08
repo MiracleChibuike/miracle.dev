@@ -50,6 +50,7 @@
 .dev-name {
   font-size: 3em;
   font-weight: 800;
+  /* font-family: "Dancing Script"; */
   /* font-family: "Poetsen One"; */
 }
 .dev-cv {
@@ -179,7 +180,7 @@
   border: none;
   outline: none;
   /* padding: 8px 10px; */
-  margin: 0 8px;
+  margin: 0 9px;
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
   padding: 10px;
   border-radius: 10px;
@@ -194,7 +195,7 @@
 .navMenuContainer button i,
 .navMenuContainer button span {
   color: var(--clr-light);
-  font-weight: 800;
+  font-weight: 900;
   background: transparent;
 }
 
@@ -519,11 +520,16 @@
   .scroll {
     display: none;
   }
+  
   /* .navMenuContainer {
     left: 10%;
     right: 10%;
     transform: none;
   } */
+   .navMenuContainer button{
+      margin: 0 5px;
+      padding: 8px;
+   }
   /* About Me */
   .dev-info {
     flex-direction: column;
@@ -543,8 +549,8 @@
     gap: 0;
   }
   .img-dev-me {
-    transform: translateY(25px);
-    -webkit-transform: translateY(25px);
+    transform: rotate(5deg);
+    -webkit-transform: rotate(5deg);
     z-index: 100;
   }
   .experience_cards {
