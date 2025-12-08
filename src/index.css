@@ -10,7 +10,6 @@
   color: #f1f1f1;
    font-family: "Nunito", sans-serif;
    scroll-behavior: smooth;
-   overflow-x: hidden;
 }
 
 ::selection{

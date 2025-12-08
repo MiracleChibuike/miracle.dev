@@ -27,7 +27,7 @@ const Entry = () => {
 
   // Initialize AOS
   useEffect(() => {
-    AOS.init({ duration: 1000, once: false });
+    AOS.init({ duration: 1000, once: true });
 
   })
   const [chatbotOpen, setChatbotOpen] = useState(false);
@@ -604,25 +604,25 @@ const Entry = () => {
               <div className="FE">
                 <h3 style={{ fontWeight: "bold" }}>Front-End Development</h3>
                 <div className="fe_skills_set">
-                  <div data-aos="fade-up-left">
+                  <div>
                     <i className="fa-solid fa-check-circle"></i> React.JS
                   </div>
-                  <div data-aos="fade-up-left">
+                  <div>
                     <i className="fa-solid fa-check-circle"></i> HTML5/CSS3
                   </div>
-                  <div data-aos="fade-up-left">
+                  <div>
                     <i className="fa-solid fa-check-circle"></i> JavaScript
                     (ES6+)
                   </div>
-                  <div data-aos="fade-up-left">
+                  <div>
                     <i className="fa-solid fa-check-circle"></i> Performance
                     Optimization
                   </div>
-                  <div data-aos="fade-up-left">
+                  <div>
                     <i className="fa-solid fa-check-circle"></i> Responsive
                     Design
                   </div>
-                  <div data-aos="fade-up-left">
+                  <div>
                     <i className="fa-solid fa-check-circle"></i> SEO Best
                     Practices
                   </div>
@@ -631,22 +631,22 @@ const Entry = () => {
               <div className="tools">
                 <h3 style={{ fontWeight: "bold" }}>Tools & Technologies</h3>
                 <div className="tools_skills">
-                  <div data-aos="fade-up-left">
+                  <div>
                     <i className="fa-solid fa-check-circle"></i> Git/GitHub
                   </div>
-                  <div data-aos="fade-up-left">
+                  <div>
                     <i className="fa-solid fa-check-circle"></i> NPM
                   </div>
-                  <div data-aos="fade-up-left">
+                  <div>
                     <i className="fa-solid fa-check-circle"></i> VS Code
                   </div>
-                  <div data-aos="fade-up-left">
+                  <div>
                     <i className="fa-solid fa-check-circle"></i> Vite
                   </div>
-                  <div data-aos="fade-up-left">
+                  <div>
                     <i className="fa-solid fa-check-circle"></i> Figma
                   </div>
-                  <div data-aos="fade-up-left">
+                  <div>
                     <i className="fa-solid fa-check-circle"></i> ESLint &
                     Pretier
                   </div>
