@@ -127,6 +127,7 @@ const Chatbot = ({ onChatbotToggle }) => {
       lowerMessage.includes("what can you") ||
       lowerMessage.includes("what do you") ||
       lowerMessage.includes("what are you") ||
+      lowerMessage.includes("what can i do") ||
       lowerMessage.includes("abilities") ||
       lowerMessage.includes("who is onyia miracle") ||
       lowerMessage.includes("services")

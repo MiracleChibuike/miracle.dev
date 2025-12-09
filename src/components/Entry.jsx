@@ -106,7 +106,9 @@ const Entry = () => {
               <i className="fa-solid fa-user"></i>
             </button>
             <button title="Work Experience">
-              <i className="fa-solid fa-briefcase" ref={experienceSectionBtn}></i>
+              <i
+                className="fa-solid fa-briefcase"
+                ref={experienceSectionBtn}></i>
             </button>
 
             <button title="My Skills">
@@ -612,7 +614,7 @@ const Entry = () => {
         </div>
         {/* Experience */}
         <div
-        ref={experienceMe}
+          ref={experienceMe}
           data-aos="fade-down"
           id="experience-me"
           className=""
@@ -758,6 +760,28 @@ const Entry = () => {
             <div>
               <h5>Best Student Award </h5>
               <p>Noble Computer Institute - 2021</p>
+            </div>
+          </div>
+        </div>
+        {/* Projects */}
+        <div className="projects_showcase" data-aos="fade-up">
+          <div className="text-center mt-lg-3">
+            <p>
+              <strong style={{ color: "#aaaaaaff" }}>
+                My Projects
+              </strong>
+            </p>
+            <h3
+              className="dev-about-header"
+              style={{
+                fontWeight: "700",
+              }}>
+              Explore my featured projects
+            </h3>
+          </div>
+          <div className="projects_lead">
+            <div className="project_main">
+              
             </div>
           </div>
         </div>

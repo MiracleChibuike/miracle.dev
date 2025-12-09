@@ -509,6 +509,9 @@
   gap: 10px;
 } */
 @media screen and (min-width: 0) and (max-width: 750px) {
+  body{
+    overflow-x: hidden;
+  }
   #parent {
     padding-left: 10px;
     padding-right: 10px;
