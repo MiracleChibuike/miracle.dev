@@ -11,6 +11,69 @@
   transition: filter 0.3s ease, pointer-events 0.3s ease;
 }
 
+/* Whatsapp Bot */
+.whatsapp_bot{
+    position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #084280 0%, #4a90e2 100%);
+  color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(74, 144, 226, 0.3);
+  transition: all 0.3s ease;
+  z-index: 999;
+  border: none;
+  animation: scale .8s infinite;
+}
+.whatsapp_bot i{
+  font-size: 28px;
+}
+@keyframes scale {
+  0%{
+    transform: scale(1.1);
+  }
+  100%{
+    transform:none;
+  }
+}
+.whatsapp_bot:hover{
+   transform: translateY(-10px);
+  box-shadow: 0 6px 30px rgba(74, 144, 226, 0.5);
+}
+.whatsapp_bot:active{
+  transform: scale(0.85);
+}
+/* Tooltip */
+.tooltip {
+  position: relative;
+}
+
+.tooltip::after {
+  content: attr(data-tip);
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
 .hero-section {
   text-align: center;
   line-height: 1.5;
@@ -343,11 +406,11 @@
   padding: 12px 0;
 }
 .jD{
-  display: none;
+  content-visibility: hidden;
   transition: top 0.4s ease;
 }
 .jD.retrieve{
-  display: block;
+  content-visibility: visible;
     transition: top 0.4s ease;
 }
 .role_details span{
@@ -363,7 +426,7 @@
   border-radius: 8px;
 }
 
-.tech_used_illustrate{
+.tech_used_illustrate, .tech_stack_illustrate{
   display: flex;
   /* justify-content: space-between; */
   flex-wrap: wrap;
@@ -474,40 +537,45 @@
   font-size: 25px;
   color: rgba(74, 144, 226, 0.3);
 }
-
-/* .tech_skill, .soft_skills{
-    border-radius: 25px;
-    background: var(--clr-dev-cards-exp);
-    padding: 15px;
-    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
-} */
-/* .skills_set,
-.learn_img {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1em;
-}
-.skills_set i,
-.learn_img i {
-  font-size: 1.2em;
-  color: var(--clr-blue);
-  padding: 0 5px;
-  transition: transform 0.7s ease-in-out background-color 0.7s ease-in-out;
-}
-.skills_set div:hover,
-.learn_img div:hover {
-  transform: scale(1.1);
-  transition: 0.7s;
-  rotate: 4deg;
-  border-radius: 8px;
-  filter: brightness(90%);
-  cursor: pointer;
-}
-.soft {
+/* Projects */
+.projects_lead{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-} */
+  gap: 2em;
+}
+.projects_lead img{
+  border-radius: 12px;
+}
+.projects_lead span{
+    background: #29496b;
+  border-radius: 5px;
+  margin: 10px 15px 5px 0;
+  padding: 5px;
+}
+.project_main{
+  background: #05101c;
+}
+.projects_lead a{
+  color: var(--clr-light);
+  border-radius: 5px;
+   margin: 10px 15px 5px 0;
+}
+
+#link-gh{
+  background: transparent;
+  padding: 12px;
+  border: 2px solid var(--clr-blue);
+  transition: all .4s;
+
+}
+#link-gh:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+#link-live{
+  background: var(--clr-blue);
+  padding: 12px;
+}
 @media screen and (min-width: 0) and (max-width: 750px) {
   body{
     overflow-x: hidden;
@@ -516,6 +584,16 @@
     padding-left: 10px;
     padding-right: 10px;
   }
+  /* Whatsapp Bot */
+  .whatsapp_bot{
+      width: 50px;
+    height: 50px;
+    font-size: 20px;
+    bottom: 120px;
+  }
+  .whatsapp_bot i{
+  font-size: 24px;
+}
   .dev-name {
     font-size: 3em;
   }
@@ -547,7 +625,7 @@
     text-align: left;
     font-weight: 600;
   }
-  .dev-info {
+  .dev-info{
     grid-template-columns: 1fr;
     gap: 0;
   }
@@ -573,6 +651,10 @@
   .work_exp{
     grid-template-columns: 1fr;
     gap: 0;
+  }
+  .projects_lead {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
   }
   /* #cv-download, .let-chat{
     padding: 10px;

@@ -12,16 +12,15 @@ import dev2 from "../assets/devImages/dev-2.png";
 import NavMenu from "./NavMenu";
 import Chatbot from "./Chatbot";
 // Import Dev images
-import react_logo from "../media/tech_stacks/react.png";
-import node_logo from "../media/tech_stacks/node.png";
-import javaScript_Logo from "../media/tech_stacks/js.png";
-import html_logo from "../media/tech_stacks/hmtl.png";
-import css_logo from "../media/tech_stacks/css.png";
-import vsCode from "../media/tech_stacks/vs_code.png";
-import github_logo from "../media/tech_stacks/git-hub.png";
-import vite_logo from "../media/vite.svg";
 import hand_wave from "../assets/hand-wave.png";
 import mainDev from "../assets/dev/Onyia_miracle_dev.webp";
+// Import Project Images
+import estate from "../assets/projects/real_estate.png";
+import hospital from "../assets/projects/hospital.png";
+import forex from "../assets/projects/forex.png";
+import crypto from "../assets/projects/crypto.png";
+import laptop from "../assets/projects/laptop.png";
+import restaurant from "../assets/projects/restaurant.png";
 
 const Entry = () => {
 
@@ -82,12 +81,22 @@ const Entry = () => {
         experienceSection.current?.scrollIntoView({ behavior: "smooth" });
       })
     }
+  });
+
+  // Load whatsapp bot script
+  const whatsAppBot = useRef(null);
+  useEffect(() => {
+    if (whatsAppBot.current) {
+      whatsAppBot.current?.addEventListener("click", () => {
+           window.location.href =
+             "https://wa.me/+2349056255572?text=Hello Miracle, I saw your portfolio and would like to get in touch.";
+      })
+    }
   })
 
   // Show and Hide JD when clicked
  const [openJob, setOpenJob] = useState(null); 
 
-  // Apply data-aos attributes and observe parent children for scroll animations
 
   return (
     <>
@@ -123,6 +132,14 @@ const Entry = () => {
               <i className="fa-solid fa-address-card"></i>
             </button>
           </div>
+        </div>
+
+        <div
+          ref={whatsAppBot}
+          className="whatsapp_bot"
+          title="Send me a WhatsApp Message"
+          role="button">
+          <i className="fa-brands fa-whatsapp"></i>
         </div>
         <div className="hero-section" ref={home}>
           {/* <video src={backgroundVideo} autoPlay muted loop playsInline style={{width: "100%"}}>
@@ -228,11 +245,7 @@ const Entry = () => {
           <div className="dev-info">
             <div className="img-dev">
               <div className="img-dev-me">
-                <img
-                  id="img-dev"
-                  src={mainDev}
-                  alt="Onyia Onyia Miracle Avatar"
-                />
+                <img id="img-dev" src={mainDev} alt="Onyia Miracle Chibuike" />
               </div>
             </div>
             <div className="dev-bio">
@@ -345,7 +358,7 @@ const Entry = () => {
                   <span>
                     {" "}
                     <i className="fa-solid fa-calendar text-secondary"></i>{" "}
-                    March 2023 - Present{" "}
+                    March 2023 — Present{" "}
                   </span>
                   <div className="job_type mt-3">
                     <span className="shadow-lg">Remote, Part-time</span>
@@ -764,12 +777,10 @@ const Entry = () => {
           </div>
         </div>
         {/* Projects */}
-        <div className="projects_showcase" data-aos="fade-up">
+        <div className="projects_showcase mt-5" data-aos="fade-up">
           <div className="text-center mt-lg-3">
             <p>
-              <strong style={{ color: "#aaaaaaff" }}>
-                My Projects
-              </strong>
+              <strong style={{ color: "#aaaaaaff" }}>My Projects</strong>
             </p>
             <h3
               className="dev-about-header"
@@ -779,9 +790,228 @@ const Entry = () => {
               Explore my featured projects
             </h3>
           </div>
-          <div className="projects_lead">
-            <div className="project_main">
-              
+          <div className="projects_lead mt-5">
+            <div className="project_main p-4 rounded-4" data-aos="zoom-in-up">
+              <div className="project_cover">
+                <img
+                  src={estate}
+                  alt="real estate project"
+                  className=""
+                  width={"100%"}
+                />
+              </div>
+              <div className="project_intro pt-4">
+                <h4>KEEV Real Estate</h4>
+                <p className="text-secondary">
+                  A modern, responsive real estate web site built with React.js
+                  and Bootstrap. It features secure user authentication,
+                  protected routes, dynamic property listings, and detailed
+                  house pages. Users can browse available homes, view full
+                  property information, and submit buying or interest requests
+                  seamlessly.
+                  <p className="pt-4">
+                    <a
+                      href="https://github.com/MiracleChibuike/estate-app"
+                      target="_blank"
+                      id="link-gh">
+                      GitHub
+                    </a>
+                    <a
+                      id="link-live"
+                      href="https://estate-app-five.vercel.app/">
+                      Live Demo <i class="fa-regular fa-share-from-square"></i>
+                    </a>
+                  </p>
+                </p>
+                <div className="tech_stacks mt-5">
+                  <p className="">
+                    <strong>Tech Stacks used</strong>
+                  </p>
+                  <div className="tech_stack_illustrate">
+                    <span>React.js</span>
+                    <span>Bootstrap</span>
+                    <span>CSS3</span>
+                    <span>React Router</span>
+                    <span>API Integration</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Project 2 */}
+            <div className="project_main p-4 rounded-4" data-aos="zoom-in-up">
+              <div className="project_cover">
+                <img
+                  src={hospital}
+                  alt="real estate project"
+                  className=""
+                  width={"100%"}
+                />
+              </div>
+              <div className="project_intro pt-4">
+                <h4>Capital Health Care</h4>
+                <p className="text-secondary">
+                  A modern, responsive real estate web site built with React.js
+                  and Bootstrap. It features secure user authentication,
+                  protected routes, dynamic property listings, and detailed
+                  house pages. Users can browse available homes, view full
+                  property information, and submit buying or interest requests
+                  seamlessly.
+                  <p className="pt-4">
+                    <a
+                      href="https://github.com/MiracleChibuike/hospital"
+                      target="_blank"
+                      id="link-gh">
+                      GitHub
+                    </a>
+                    <a id="link-live" href="https://capital-health.vercel.app">
+                      Live Demo <i class="fa-regular fa-share-from-square"></i>
+                    </a>
+                  </p>
+                </p>
+                <div className="tech_stacks mt-5">
+                  <p>
+                    <strong>Tech Stacks used</strong>
+                  </p>
+                  <div className="tech_stack_illustrate">
+                    <span>JavaScript</span>
+                    <span>Bootstrap</span>
+                    <span>CSS3</span>
+                    <span>API Integration</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Project 3 */}
+            <div className="project_main p-4 rounded-4" data-aos="zoom-in-up">
+              <div className="project_cover">
+                <img
+                  src={forex}
+                  alt="real estate project"
+                  className=""
+                  width={"100%"}
+                />
+              </div>
+              <div className="project_intro pt-4">
+                <h4>Signal FX</h4>
+                <p className="text-secondary">
+                  A modern, responsive real estate web site built with React.js
+                  and Bootstrap. It features secure user authentication,
+                  protected routes, dynamic property listings, and detailed
+                  house pages. Users can browse available homes, view full
+                  property information, and submit buying or interest requests
+                  seamlessly.
+                  <p className="pt-4">
+                    <a
+                      href="https://github.com/MiracleChibuike/hospital"
+                      target="_blank"
+                      id="link-gh">
+                      GitHub
+                    </a>
+                    <a id="link-live" href="https://capital-health.vercel.app">
+                      Live Demo <i class="fa-regular fa-share-from-square"></i>
+                    </a>
+                  </p>
+                </p>
+                <div className="tech_stacks mt-5">
+                  <p>
+                    <strong>Tech Stacks used</strong>
+                  </p>
+                  <div className="tech_stack_illustrate">
+                    <span>JavaScript</span>
+                    <span>Bootstrap</span>
+                    <span>CSS3</span>
+                    <span>API Integration</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Project 4 */}
+            <div className="project_main p-4 rounded-4" data-aos="zoom-in-up">
+              <div className="project_cover">
+                <img
+                  src={laptop}
+                  alt="real estate project"
+                  className=""
+                  width={"100%"}
+                />
+              </div>
+              <div className="project_intro pt-4">
+                <h4>Tech Lap</h4>
+                <p className="text-secondary">
+                  A modern, responsive real estate web site built with React.js
+                  and Bootstrap. It features secure user authentication,
+                  protected routes, dynamic property listings, and detailed
+                  house pages. Users can browse available homes, view full
+                  property information, and submit buying or interest requests
+                  seamlessly.
+                  <p className="pt-4">
+                    <a
+                      href="https://github.com/MiracleChibuike/hospital"
+                      target="_blank"
+                      id="link-gh">
+                      GitHub
+                    </a>
+                    <a id="link-live" href="https://capital-health.vercel.app">
+                      Live Demo <i class="fa-regular fa-share-from-square"></i>
+                    </a>
+                  </p>
+                </p>
+                <div className="tech_stacks mt-5">
+                  <p>
+                    <strong>Tech Stacks used</strong>
+                  </p>
+                  <div className="tech_stack_illustrate">
+                    <span>JavaScript</span>
+                    <span>Bootstrap</span>
+                    <span>CSS3</span>
+                    <span>API Integration</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Project 5 */}
+            <div className="project_main p-4 rounded-4" data-aos="zoom-in-up">
+              <div className="project_cover">
+                <img
+                  src={restaurant}
+                  alt="real estate project"
+                  className=""
+                  width={"100%"}
+                />
+              </div>
+              <div className="project_intro pt-4">
+                <h4>La-Hot Naija Restaurant</h4>
+                <p className="text-secondary">
+                  A modern, responsive real estate web site built with React.js
+                  and Bootstrap. It features secure user authentication,
+                  protected routes, dynamic property listings, and detailed
+                  house pages. Users can browse available homes, view full
+                  property information, and submit buying or interest requests
+                  seamlessly.
+                  <p className="pt-4">
+                    <a
+                      href="https://github.com/MiracleChibuike/hospital"
+                      target="_blank"
+                      id="link-gh">
+                      GitHub
+                    </a>
+                    <a id="link-live" href="https://capital-health.vercel.app">
+                      Live Demo <i class="fa-regular fa-share-from-square"></i>
+                    </a>
+                  </p>
+                </p>
+                <div className="tech_stacks mt-5">
+                  <p>
+                    <strong>Tech Stacks used</strong>
+                  </p>
+                  <div className="tech_stack_illustrate">
+                    <span>JavaScript</span>
+                    <span>Bootstrap</span>
+                    <span>CSS3</span>
+                    <span>API Integration</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
