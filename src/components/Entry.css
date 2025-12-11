@@ -11,6 +11,24 @@
   transition: filter 0.3s ease, pointer-events 0.3s ease;
 }
 
+/* Tippy customization */
+/* .tippy-box[data-theme~='myTheme'] { */
+  /* background-color: var(--clr-blue-main)!important;   */
+      /* your background */
+  /* color: #fff !important;    */
+  /* padding: 6px 8px; */
+  /* border-radius: 8px; */
+  /* transition: top .5s ease-in-out; */
+              /* text color */            
+              /* custom font size */
+/* } */
+
+/* Optional: style the tooltip arrow */
+/* .tippy-box[data-theme~='myTheme'] > .tippy-arrow::before { */
+  /* color: var(--clr-blue-main) !important;  */
+  /* arrow color matches background */
+/* } */
+
 /* Whatsapp Bot */
 .whatsapp_bot{
     position: fixed;
@@ -48,31 +66,6 @@
 }
 .whatsapp_bot:active{
   transform: scale(0.85);
-}
-/* Tooltip */
-.tooltip {
-  position: relative;
-}
-
-.tooltip::after {
-  content: attr(data-tip);
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: black;
-  color: white;
-  padding: 6px 10px;
-  border-radius: 6px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .2s ease, transform .2s ease;
-}
-
-.tooltip:hover::after {
-  opacity: 1;
-  transform: translateX(-50%) translateY(-5px);
 }
 .hero-section {
   text-align: center;
@@ -253,6 +246,10 @@
 }
 .navMenuContainer button:hover {
   background: #020260;
+  transform: scale(1.2);
+}
+.navMenuContainer button.active{
+    background: #020260;
   transform: scale(1.2);
 }
 .navMenuContainer button i,
@@ -554,6 +551,13 @@
 }
 .project_main{
   background: #05101c;
+    border: 2px solid #05101c;
+  transition: .5s ease-in-out;
+}
+.project_main:hover{
+  /* transform: transition 0.5s ease, background-color 0.5s ease; */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  background: transparent;
 }
 .projects_lead a{
   color: var(--clr-light);
@@ -565,16 +569,22 @@
   background: transparent;
   padding: 12px;
   border: 2px solid var(--clr-blue);
-  transition: all .4s;
+  transition: all .4s ease;
 
 }
 #link-gh:hover{
   transform: scale(1.1);
   cursor: pointer;
+  background: var(--clr-blue);
 }
 #link-live{
-  background: var(--clr-blue);
+  background: linear-gradient(#084280, #3434ca);
   padding: 12px;
+    transition: all .4s ease;
+}
+#link-live:hover{
+  background: linear-gradient(#084280, #4848f2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 @media screen and (min-width: 0) and (max-width: 750px) {
   body{

@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { useState, useRef, useEffect } from "react";
 import "./Chatbot.css";
+import tippy from "tippy.js";
+import "tippy.js/dist/tippy.css";
 
 const Chatbot = ({ onChatbotToggle }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -295,13 +297,24 @@ const Chatbot = ({ onChatbotToggle }) => {
     setIsOpen(!isOpen);
   };
 
+  // Tippy
+  tippy("[data-tippy-content]");
+  
+  // Tippy for customization
+  useEffect(() => {
+    tippy("[data-tippy-content]", {
+      theme: "myTheme",
+      placement: "top",
+    });
+  }, []);
+
   return (
     <>
       {/* Chatbot Widget Button */}
       <div
         className="chatbot-widget-btn"
         onClick={handleToggleChat}
-        title="Chat with Miracle's AI Assistant"
+        data-tippy-content="Chat with MTech - Miracle's AI Assistant"
         role="button"
         tabIndex={0}
         onKeyPress={(e) => e.key === "Enter" && handleToggleChat()}>

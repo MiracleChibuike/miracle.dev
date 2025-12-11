@@ -5,6 +5,9 @@ import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./Entry.css";
+// Import Tippy JS package
+import tippy from "tippy.js";
+import "tippy.js/dist/tippy.css"; // For styling
 import Resume from "../media/files/Miracle.pdf";
 import dev_avatar from "../assets/devImages/dev-avatar.png";
 import dev2 from "../assets/devImages/dev-2.png";
@@ -83,6 +86,17 @@ const Entry = () => {
     }
   });
 
+  // Route to Projects Section
+  const projectsSection = useRef(null);
+  const projectsSectionBtn = useRef(null);
+  useEffect(() => {
+    if (projectsSection.current) {
+      projectsSectionBtn.current?.addEventListener("click", () => {
+        projectsSection.current?.scrollIntoView({ behavior: "smooth" });
+      })
+    }
+  })
+
   // Load whatsapp bot script
   const whatsAppBot = useRef(null);
   useEffect(() => {
@@ -97,6 +111,26 @@ const Entry = () => {
   // Show and Hide JD when clicked
  const [openJob, setOpenJob] = useState(null); 
 
+//  Ad active style to the clicked nav buttons
+const [isButtonActive, setIsButtonActive] = useState(null);
+const handleButtonClick = (buttonIndex) => {
+  setIsButtonActive(buttonIndex);
+};
+
+
+
+//  Tool Tippy Initialization
+// tippy("#singleElement", {
+//   content: "Tooltip",
+// });
+tippy("[data-tippy-content]");
+
+// Tippy for customization
+// useEffect(() => {
+//   tippy("[data-tippy-content]", {
+//     theme: "myTheme",
+//   });
+// }, []);
 
   return (
     <>
@@ -107,28 +141,50 @@ const Entry = () => {
         {/* Nav Menu */}
         <div className="nav-menu">
           <div className="navMenuContainer d-flex justify-content-evenly">
-            <button title="Home" ref={buttonHome}>
+            <button
+              className={isButtonActive === "Home" ? "active" : ""}
+              onClick={() => setIsButtonActive("Home")}
+              id="singleElement"
+              data-tippy-content="Home"
+              ref={buttonHome}>
               <span className="fa-solid fa-house"></span>
             </button>
 
-            <button title="About Me" ref={aboutMeBtn}>
+            <button
+              className={isButtonActive === "About" ? "active" : ""}
+              onClick={() => setIsButtonActive("About")}
+              data-tippy-content="About Me"
+              ref={aboutMeBtn}>
               <i className="fa-solid fa-user"></i>
             </button>
-            <button title="Work Experience">
-              <i
-                className="fa-solid fa-briefcase"
-                ref={experienceSectionBtn}></i>
+            <button
+              className={isButtonActive === "Work" ? "active" : ""}
+              onClick={() => setIsButtonActive("Work")}
+              data-tippy-content="Work Experience"
+              ref={experienceSectionBtn}>
+              <i className="fa-solid fa-briefcase"></i>
             </button>
 
-            <button title="My Skills">
-              <i className="fa-solid fa-book" ref={experienceMeBtn}></i>
+            <button
+              className={isButtonActive === "Skills" ? "active" : ""}
+              onClick={() => setIsButtonActive("Skills")}
+              data-tippy-content="My Skills"
+              ref={experienceMeBtn}>
+              <i className="fa-solid fa-book"></i>
             </button>
 
-            <button>
+            <button
+              className={isButtonActive === "Projects" ? "active" : ""}
+              onClick={() => setIsButtonActive("Projects")}
+              data-tippy-content="My Projects"
+              ref={projectsSectionBtn}>
               <i className="fa-solid fa-handshake"></i>
             </button>
 
-            <button>
+            <button
+              className={isButtonActive === "Contact" ? "active" : ""}
+              onClick={() => setIsButtonActive("Contact")}
+              data-tippy-content="Contact Me">
               <i className="fa-solid fa-address-card"></i>
             </button>
           </div>
@@ -137,7 +193,7 @@ const Entry = () => {
         <div
           ref={whatsAppBot}
           className="whatsapp_bot"
-          title="Send me a WhatsApp Message"
+          data-tippy-content="Send me a WhatsApp Message"
           role="button">
           <i className="fa-brands fa-whatsapp"></i>
         </div>
@@ -777,7 +833,13 @@ const Entry = () => {
           </div>
         </div>
         {/* Projects */}
-        <div className="projects_showcase mt-5" data-aos="fade-up">
+        <div
+          className="projects_showcase"
+          style={{
+            margin: "90px 0",
+          }}
+          data-aos="fade-up"
+          ref={projectsSection}>
           <div className="text-center mt-lg-3">
             <p>
               <strong style={{ color: "#aaaaaaff" }}>My Projects</strong>
@@ -833,6 +895,8 @@ const Entry = () => {
                     <span>CSS3</span>
                     <span>React Router</span>
                     <span>API Integration</span>
+                    <span>Email JS</span>
+                    <span>JSON Mock Server</span>
                   </div>
                 </div>
               </div>
@@ -842,7 +906,9 @@ const Entry = () => {
               <div className="project_cover">
                 <img
                   src={hospital}
-                  alt="real estate project"
+                  alt="Capital Health Care is a modern Health Management System
+                  designed to improve clinical efficiency and enhance patient
+                  experience."
                   className=""
                   width={"100%"}
                 />
@@ -850,12 +916,18 @@ const Entry = () => {
               <div className="project_intro pt-4">
                 <h4>Capital Health Care</h4>
                 <p className="text-secondary">
-                  A modern, responsive real estate web site built with React.js
-                  and Bootstrap. It features secure user authentication,
-                  protected routes, dynamic property listings, and detailed
-                  house pages. Users can browse available homes, view full
-                  property information, and submit buying or interest requests
-                  seamlessly.
+                  Capital Health Care is a modern Health Management System
+                  designed to improve clinical efficiency and enhance patient
+                  experience. Built with modern technologies, the platform
+                  reduces long wait times by digitizing patient onboarding,
+                  appointment booking, and clinic discovery. Patients can
+                  securely access their health information, find the nearest
+                  clinics, and schedule consultations with ease. For healthcare
+                  providers, the system streamlines workflow, minimizes
+                  administrative bottlenecks, and supports faster, more
+                  coordinated patient care delivery. I am working alongside a
+                  team of 3 one designer and 2 developers. It's still a work in
+                  progress.
                   <p className="pt-4">
                     <a
                       href="https://github.com/MiracleChibuike/hospital"
@@ -875,8 +947,10 @@ const Entry = () => {
                   <div className="tech_stack_illustrate">
                     <span>JavaScript</span>
                     <span>Bootstrap</span>
+                    <span>HTML5</span>
                     <span>CSS3</span>
                     <span>API Integration</span>
+                    <span>Node package managers</span>
                   </div>
                 </div>
               </div>
@@ -894,20 +968,23 @@ const Entry = () => {
               <div className="project_intro pt-4">
                 <h4>Signal FX</h4>
                 <p className="text-secondary">
-                  A modern, responsive real estate web site built with React.js
-                  and Bootstrap. It features secure user authentication,
-                  protected routes, dynamic property listings, and detailed
-                  house pages. Users can browse available homes, view full
-                  property information, and submit buying or interest requests
-                  seamlessly.
+                  Signal FX, a responsive forex analytics platform built with
+                  modern technologies. It provides secure user authentication,
+                  protected dashboards, and forex training guides/mentorship
+                  courses. Built to streamline analysis and enhance trading
+                  efficiency for both beginners and experienced traders. It's
+                  aimed at empowering users with the tools and insights needed
+                  to make informed trading decisions in the dynamic forex
+                  market. I'm currently working on integrating real-time forex
+                  data to enhance user experience.
                   <p className="pt-4">
                     <a
-                      href="https://github.com/MiracleChibuike/hospital"
+                      href="https://github.com/MiracleChibuike/signalfx"
                       target="_blank"
                       id="link-gh">
                       GitHub
                     </a>
-                    <a id="link-live" href="https://capital-health.vercel.app">
+                    <a id="link-live" href="https://signalfx.vercel.app/">
                       Live Demo <i class="fa-regular fa-share-from-square"></i>
                     </a>
                   </p>
@@ -919,6 +996,7 @@ const Entry = () => {
                   <div className="tech_stack_illustrate">
                     <span>JavaScript</span>
                     <span>Bootstrap</span>
+                    <span>HTML5</span>
                     <span>CSS3</span>
                     <span>API Integration</span>
                   </div>
@@ -938,20 +1016,20 @@ const Entry = () => {
               <div className="project_intro pt-4">
                 <h4>Tech Lap</h4>
                 <p className="text-secondary">
-                  A modern, responsive real estate web site built with React.js
-                  and Bootstrap. It features secure user authentication,
-                  protected routes, dynamic property listings, and detailed
-                  house pages. Users can browse available homes, view full
-                  property information, and submit buying or interest requests
-                  seamlessly.
+                  Tech Lap is a sleek, responsive e-commerce platform designed
+                  for browsing and purchasing laptops with ease. The site
+                  includes secure user access, protected routes, and dynamically
+                  loaded product listings. Users can explore available laptops,
+                  view detailed specifications, compare options, and send
+                  purchase requests seamlessly as development continues
                   <p className="pt-4">
                     <a
-                      href="https://github.com/MiracleChibuike/hospital"
+                      href="https://github.com/MiracleChibuike/laptopsite"
                       target="_blank"
                       id="link-gh">
                       GitHub
                     </a>
-                    <a id="link-live" href="https://capital-health.vercel.app">
+                    <a id="link-live" href="https://laptop-villa.vercel.app/">
                       Live Demo <i class="fa-regular fa-share-from-square"></i>
                     </a>
                   </p>
@@ -963,6 +1041,7 @@ const Entry = () => {
                   <div className="tech_stack_illustrate">
                     <span>JavaScript</span>
                     <span>Bootstrap</span>
+                    <span>HTM5</span>
                     <span>CSS3</span>
                     <span>API Integration</span>
                   </div>
@@ -982,20 +1061,24 @@ const Entry = () => {
               <div className="project_intro pt-4">
                 <h4>La-Hot Naija Restaurant</h4>
                 <p className="text-secondary">
-                  A modern, responsive real estate web site built with React.js
-                  and Bootstrap. It features secure user authentication,
-                  protected routes, dynamic property listings, and detailed
-                  house pages. Users can browse available homes, view full
-                  property information, and submit buying or interest requests
-                  seamlessly.
+                  La-Hot restaurant - a fully responsive restaurant and
+                  food-ordering website built with Bootstrap, designed to help
+                  users discover a wide range of Nigerian dishes and place
+                  orders effortlessly. The platform features well-organized menu
+                  listings, detailed meal descriptions, and a smooth ordering
+                  flow. Customers can browse available dishes, explore
+                  ingredients and pricing, and submit their food orders
+                  seamlessly as the system continues to expand.
                   <p className="pt-4">
                     <a
-                      href="https://github.com/MiracleChibuike/hospital"
+                      href="https://github.com/MiracleChibuike/naijarestaurant"
                       target="_blank"
                       id="link-gh">
                       GitHub
                     </a>
-                    <a id="link-live" href="https://capital-health.vercel.app">
+                    <a
+                      id="link-live"
+                      href="https://naijarestaurant.vercel.app/">
                       Live Demo <i class="fa-regular fa-share-from-square"></i>
                     </a>
                   </p>
@@ -1007,14 +1090,15 @@ const Entry = () => {
                   <div className="tech_stack_illustrate">
                     <span>JavaScript</span>
                     <span>Bootstrap</span>
+                    <span>HTML5</span>
                     <span>CSS3</span>
-                    <span>API Integration</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        {/* Contact Section */}
       </div>
       {/* AI Chatbot - Outside parent to avoid blur effect */}
       <Chatbot onChatbotToggle={setChatbotOpen} />

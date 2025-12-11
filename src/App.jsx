@@ -12,7 +12,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Entry />} />
-          <Route path="/menu" element={<NavMenu />} />
         </Routes>
       </BrowserRouter>
     </>
