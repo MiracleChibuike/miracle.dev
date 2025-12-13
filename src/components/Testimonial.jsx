@@ -45,7 +45,7 @@ const Testimonial = () => {
                     <strong>Gold in Real Estate Conference (GIRE25).</strong> I
                     have met many developers in the past that never delivered,
                     but Mr. Miracle's passsion and deep insight he shared with
-                    me was exceptional and thus he delievred a great project. A
+                    me was exceptional and thus he delivered a great project. A
                     very responsive website with a great user interface was
                     delivered in record time! Our site visitors have also given
                     good reviews as the number of vistors rised from 300 to 1000
@@ -68,7 +68,7 @@ const Testimonial = () => {
                     <strong>Gold in Real Estate Conference (GIRE25).</strong> I
                     have met many developers in the past that never delivered,
                     but Mr. Miracle's passsion and deep insight he shared with
-                    me was exceptional and thus he delievred a great project. A
+                    me was exceptional and thus he delivered a great project. A
                     very responsive website with a great user interface was
                     delivered in record time! Our site visitors have also given
                     good reviews as the number of vistors rised from 300 to 1000
@@ -91,7 +91,7 @@ const Testimonial = () => {
                     <strong>Gold in Real Estate Conference (GIRE25).</strong> I
                     have met many developers in the past that never delivered,
                     but Mr. Miracle's passsion and deep insight he shared with
-                    me was exceptional and thus he delievred a great project. A
+                    me was exceptional and thus he delivered a great project. A
                     very responsive website with a great user interface was
                     delivered in record time! Our site visitors have also given
                     good reviews as the number of vistors rised from 300 to 1000
