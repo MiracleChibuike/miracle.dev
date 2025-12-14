@@ -1113,7 +1113,7 @@ useEffect(() => {
           </div>
         </div>
         {/* Testimonials */}
-        <Testimonial/>
+        <Testimonial />
         {/* Contact Section */}
         <div
           ref={contactSection}
@@ -1173,7 +1173,7 @@ useEffect(() => {
                     </label>
                     <input
                       type="text"
-                      className="p-3 rounded-3 text-light"
+                      className="p-3 rounded-3 text-secondary"
                       placeholder="Enter your name"
                     />
                   </div>
@@ -1183,7 +1183,7 @@ useEffect(() => {
                     </label>
                     <input
                       type="email"
-                      className="p-3 rounded-3 text-light"
+                      className="p-3 rounded-3 text-secondary"
                       placeholder="Enter your email"
                     />
                     <div id="emailHelp" class="text-secondary">
@@ -1196,19 +1196,64 @@ useEffect(() => {
                     </label>
                     <textarea
                       draggable="false"
-                      className="p-3 rounded-3 text-light"
+                      className="p-3 rounded-3 text-secondary"
                       name=""
                       id=""
                       rows={"7"}
                       placeholder="Type in your message/enquiry you have"></textarea>
                   </div>
-                  <button type="submit" id="send" className="mb-lg-5 mt-3 p-3  rounded-3">Send Message</button>
+                  <button
+                    type="submit"
+                    id="send"
+                    className="mb-lg-5 mt-3 p-3  rounded-3">
+                    Send Message
+                  </button>
                 </form>
               </div>
             </div>
           </div>
         </div>
+        <div className="nwt">
+          <div className="letter_sub text-center">
+            <div className="letter_sub_ct">
+              <h2 className="">Subscribe to my Newsletter</h2>
+              <p className="mt-2">
+                I post, share valuable insights/experience on tech education,
+                technologies, tools and mentorship. If that sounds good to you,
+                then subscribe to my newsletter
+              </p>
+            </div>
+            <div className="sub mt-4">
+              <a
+                href="https://onyiam.substack.com/subscribe"
+                target="_blank"
+                className="p-3 rounded-2">
+                Subscribe Now <i className="fa-solid fa-arrow-right p-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
+      {/* Footer */}
+      <footer className="mt-lg-5">
+        <div className="footer_contents p-5">
+          <h2 className="text-center text-secondary">Onyia Miracle C.</h2>
+          <div className="social_icons p-2">
+            <div className="social_icon_footer">
+              <i className="fa-brands fa-github m-2"></i>
+              <i class="fa-brands fa-linkedin m-2"></i>
+              <i class="fa-solid fa-envelope-open-text m-2"></i>
+            </div>
+            <div className="rights">
+              <p className="text-secondary">
+                {" "}
+                <i class="fa-solid fa-copyright text-secondary"></i> 2025 Onyia
+                Miracle. All Rights Reserved
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
       {/* AI Chatbot - Outside parent to avoid blur effect */}
       <Chatbot onChatbotToggle={setChatbotOpen} />
     </>
