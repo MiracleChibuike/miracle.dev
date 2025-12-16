@@ -26,14 +26,13 @@ import crypto from "../assets/projects/crypto.png";
 import laptop from "../assets/projects/laptop.png";
 import restaurant from "../assets/projects/restaurant.png";
 import Testimonial from "./Testimonial";
+import emailjs from "emailjs-com";
 
 const Entry = () => {
-
   // Initialize AOS
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
-
-  })
+  });
   const [chatbotOpen, setChatbotOpen] = useState(false);
   const navigate = useNavigate();
   const btnRef = useRef(null);
@@ -73,7 +72,7 @@ const Entry = () => {
     if (experienceMe.current) {
       experienceMeBtn.current?.addEventListener("click", () => {
         experienceMe.current?.scrollIntoView({ behavior: "smooth" });
-      })
+      });
     }
   });
 
@@ -84,7 +83,7 @@ const Entry = () => {
     if (experienceSection.current) {
       experienceSectionBtn.current?.addEventListener("click", () => {
         experienceSection.current?.scrollIntoView({ behavior: "smooth" });
-      })
+      });
     }
   });
 
@@ -95,65 +94,136 @@ const Entry = () => {
     if (projectsSection.current) {
       projectsSectionBtn.current?.addEventListener("click", () => {
         projectsSection.current?.scrollIntoView({ behavior: "smooth" });
-      })
+      });
     }
   });
 
   // Route to Contact Section
   const contactSection = useRef(null);
-  const contactBtn = useRef(null)
+  const contactBtn = useRef(null);
   useEffect(() => {
     if (contactSection.current) {
       contactBtn.current?.addEventListener("click", () => {
-        contactSection.current?.scrollIntoView({behavior: "smooth"})
-      })
+        contactSection.current?.scrollIntoView({ behavior: "smooth" });
+      });
     }
-  })
+  });
 
   // Load whatsapp bot script
   const whatsAppBot = useRef(null);
   useEffect(() => {
     if (whatsAppBot.current) {
       whatsAppBot.current?.addEventListener("click", () => {
-           window.location.href =
-             "https://wa.me/+2349056255572?text=Hello Miracle, I saw your portfolio and would like to get in touch.";
-      })
+        window.location.href =
+          "https://wa.me/+2349056255572?text=Hello Miracle, I saw your portfolio and would like to get in touch.";
+      });
     }
-  })
+  });
 
   // Show and Hide JD when clicked
- const [openJob, setOpenJob] = useState(null); 
+  const [openJob, setOpenJob] = useState(null);
 
-//  Ad active style to the clicked nav buttons
-const [isButtonActive, setIsButtonActive] = useState(null);
-const handleButtonClick = (buttonIndex) => {
-  setIsButtonActive(buttonIndex);
-};
+  //  Ad active style to the clicked nav buttons
+  const [isButtonActive, setIsButtonActive] = useState(null);
+  const handleButtonClick = (buttonIndex) => {
+    setIsButtonActive(buttonIndex);
+  };
 
-// Scroll to Footer 
-const scrollFooter = useRef(null);
-const buttonScroll = useRef(null);
-useEffect(() => {
-  if (scrollFooter.current) {
-    buttonScroll.current?.addEventListener("click", () => {
-      scrollFooter.current?.scrollIntoView({behavior: "smooth"})
-    })
-  }
-})
-
-
-//  Tool Tippy Initialization
-// tippy("#singleElement", {
-//   content: "Tooltip",
-// });
-tippy("[data-tippy-content]");
-
-// Tippy for customization
-useEffect(() => {
-  tippy("[data-tippy-content]", {
-    theme: "myTheme",
+  // Scroll to Footer
+  const scrollFooter = useRef(null);
+  const buttonScroll = useRef(null);
+  useEffect(() => {
+    if (scrollFooter.current) {
+      buttonScroll.current?.addEventListener("click", () => {
+        scrollFooter.current?.scrollIntoView({ behavior: "smooth" });
+      });
+    }
   });
-}, []);
+
+  //  Tool Tippy Initialization
+  // tippy("#singleElement", {
+  //   content: "Tooltip",
+  // });
+  tippy("[data-tippy-content]");
+
+  // Tippy for customization
+  useEffect(() => {
+    tippy("[data-tippy-content]", {
+      theme: "myTheme",
+    });
+  }, []);
+
+  // Send Form using Email JS
+  const formHandler = useRef(null);
+  const userName = useRef(null);
+  const userEmail = useRef(null);
+  const userMessage = useRef(null);
+  const formSubmitBtn = useRef(null);
+
+  const [isSucessful, setIsSuccesful] = useState(false);
+
+  // Validate Form and Send Email
+
+  // Send Email using Email JS
+  const sendMail = () => {
+    const formSend = formHandler.current;
+    emailjs
+      .sendForm(
+        "service_sjvlg4o", // Service ID
+        "template_tsc4aei", // Template ID
+        formSend,
+        "YTRllSPSZdgWr7ISF" // My USER ID
+      )
+      .then(
+        (response) => {
+          console.log("Message sent", response);
+          setIsSuccesful(true);
+          formSend.reset(); // Reset Form
+        },
+        (error) => {
+          console.log("Error occured", error);
+          // alert(error);
+          setIsValidate(`Sorry message was not sent due to: ${error.text} \n Try checking
+          your internet connection and try again
+          `);
+          setIsError(true);
+          setTimeout(() => {
+            setIsError(false);
+          }, 9000);
+        }
+      );
+        // btnSend.textContent = "Send Message";
+        // btnSend.disabled = false;
+  };
+
+  // Call the function
+  useEffect(() => {
+    const formElement = formHandler.current;
+
+    const submitHandler = (e) => {
+      e.preventDefault(); // Prevent the default form submission
+      sendMail();
+    };
+
+    formElement.addEventListener("submit", submitHandler);
+
+    // Cleanup to avoid multiple event listeners
+    return () => {
+      formElement.removeEventListener("submit", submitHandler);
+    };
+  });
+  // Content for Error
+  const [isValidate, setIsValidate] = useState("");
+  const [isError, setIsError] = useState(false);
+
+  //  Close Success Modal
+  const closeSuccess = () => {
+    setIsSuccesful(false);
+  };
+
+  const closeError = () => {
+    setIsError(false);
+  };
 
   return (
     <>
@@ -161,6 +231,43 @@ useEffect(() => {
 
       {/* Parent */}
       <div className="container" id="parent">
+        {/* Default Modal for succesful Email Send */}
+        {isSucessful && (
+          <div className="succes_modal popup-box">
+            <div className="succes_Modal_content pop-up-overlay">
+              <p className="close_pop d-flex justify-content-end">
+                <i
+                  className="fa-solid fa-xmark p-2 rounded-3"
+                  onClick={closeSuccess}></i>
+              </p>
+              <div className="success_icon text-center m-2">
+                <i className="fa-solid fa-circle-check"></i>
+              </div>
+              <h2 className="text-center">Message Sent Succesfully</h2>
+              <p className="text-center">
+                Your request has been received and will be responsed to shortly
+              </p>
+            </div>
+          </div>
+        )}
+        {/* Error Message */}
+        {isError && (
+          <div className="succes_modal popup-box-error">
+            <div className="succes_Modal_content pop-up-overlay-error">
+              <p className="close_pop d-flex justify-content-end">
+                <i
+                  className="fa-solid fa-xmark p-2 rounded-3"
+                  onClick={closeError}></i>
+              </p>
+              <div className="success_icon text-center m-2">
+                <i className="fa-solid fa-xmark"></i>
+              </div>
+              <h2 className="text-center">Error Sending Message</h2>
+              {isValidate && <p className="text-center"> {isValidate} </p>}
+            </div>
+          </div>
+        )}
+
         {/* Nav Menu */}
         <div className="nav-menu">
           <div className="navMenuContainer d-flex justify-content-evenly">
@@ -258,7 +365,7 @@ useEffect(() => {
               id="cv-download">
               Download Resume
             </a>
-            <a href="" aria-label="Let's chat" className="let-chat ">
+            <a href="#contact" aria-label="Let's chat" className="let-chat ">
               Let's Connect
             </a>
           </div>
@@ -267,8 +374,11 @@ useEffect(() => {
           className="hero-dev-contacts d-flex justify-content-between"
           ref={aboutMe}>
           <div className="scroll">
-            <button ref={buttonScroll}>
-              <i className="fa-solid fa-arrow-down"></i>
+            <button>
+              <a href="#contact">
+                {" "}
+                <i className="fa-solid fa-arrow-down"></i>
+              </a>
             </button>
           </div>
           <div className="dev-image">
@@ -383,11 +493,7 @@ useEffect(() => {
                 contributing my skills to the right company.
               </p>
               <div>
-                <a
-                  ref={contactBtn}
-                  aria-label="Let's speak"
-                  href=""
-                  id="speak-with-me">
+                <a aria-label="Let's speak" href="#contact" id="speak-with-me">
                   Speak with Me
                 </a>
               </div>
@@ -1127,6 +1233,7 @@ useEffect(() => {
         <Testimonial />
         {/* Contact Section */}
         <div
+          id="contact"
           ref={contactSection}
           className="contact_section"
           style={{
@@ -1188,7 +1295,7 @@ useEffect(() => {
             </div>
             <div className="contact_card_right">
               <div className="contact_form m-b3">
-                <form action="" method="get">
+                <form ref={formHandler}>
                   <div className="name mb-3">
                     <label htmlFor="name" className="pb-2">
                       Name
@@ -1197,6 +1304,9 @@ useEffect(() => {
                       type="text"
                       className="p-3 rounded-3 text-secondary"
                       placeholder="Enter your name"
+                      name="name"
+                      ref={userName}
+                      required
                     />
                   </div>
                   <div className="email mb-3">
@@ -1207,9 +1317,12 @@ useEffect(() => {
                       type="email"
                       className="p-3 rounded-3 text-secondary"
                       placeholder="Enter your email"
+                      name="email"
+                      ref={userEmail}
+                      required
                     />
                     <div id="emailHelp" class="text-secondary">
-                      <small>
+                      <small class="text-secondary">
                         {" "}
                         I'll never share your email with anyone else.
                       </small>
@@ -1222,12 +1335,15 @@ useEffect(() => {
                     <textarea
                       draggable="false"
                       className="p-3 rounded-3 text-secondary"
-                      name=""
+                      name="message"
+                      required
+                      ref={userMessage}
                       id=""
                       rows={"7"}
                       placeholder="Type in your message/enquiry you have"></textarea>
                   </div>
                   <button
+                  ref={formSubmitBtn}
                     type="submit"
                     id="send"
                     className="mb-lg-5 mt-3 p-3  rounded-3">
